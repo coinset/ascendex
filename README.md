@@ -224,3 +224,43 @@ type OrderBookResponse = {
   };
 };
 ```
+
+### fetchTrades
+
+Returns a list of trade history.
+[Docs](https://ascendex.github.io/ascendex-pro-api/#market-trades)
+
+example:
+
+```ts
+import { fetchTrades } from "https://deno.land/x/ascendex@$VERSION/mod.ts";
+await fetchTrades({ symbol: "BTC/USDT" });
+```
+
+parameters:
+
+```ts
+type TradesOptions = {
+  symbol: `${string}/${string}`;
+  n?: number | undefined;
+};
+```
+
+returns:
+
+```ts
+type TradesResponse = {
+  code: 0;
+  data: {
+    m: "trades";
+    symbol: `${string}/${string}`;
+    data: {
+      seqnum: number;
+      p: number;
+      q: number;
+      ts: number;
+      bm: boolean;
+    }[];
+  };
+};
+```

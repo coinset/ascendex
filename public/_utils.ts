@@ -25,3 +25,7 @@ export type SuccessResponse<Data> = {
   code: 0;
   data: Data;
 };
+
+export function hasSlash(value: string): boolean {
+  return /\w+\/\w+/.test(value);
+}
