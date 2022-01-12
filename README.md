@@ -43,3 +43,38 @@ type AssetsResponse = {
   }[];
 };
 ```
+
+### fetchProducts
+
+You can obtain a list of all products traded on the exchange through this API.
+[Docs](https://ascendex.github.io/ascendex-pro-api/#list-all-products)
+
+example:
+
+```ts
+import { fetchProducts } from "https://deno.land/x/ascendex@$VERSION/mod.ts";
+
+await fetchProducts();
+```
+
+returns:
+
+```ts
+type ProductsResponse = {
+  code: 0;
+  data: {
+    symbol: string;
+    displayName: string;
+    baseAsset: string;
+    quoteAsset: string;
+    status: "Normal" | "NoTrading" | "InternalTrading";
+    minNotional: number;
+    maxNotional: number;
+    marginTradable: boolean;
+    commissionType: "Base" | "Quote" | "Received";
+    commissionReserveRate: number;
+    tickSize: number;
+    lotSize: number;
+  }[];
+};
+```
