@@ -1,5 +1,4 @@
 import { jsonFetch, Reviver, SuccessResponse } from "./_utils.ts";
-import { BASE_URL } from "./constants.ts";
 
 export type AssetsResponse = SuccessResponse<{
   /** asset code. e.g. `"BTC"` */
@@ -65,7 +64,7 @@ const reviver: Reviver = (key, value) => {
  * @see https://ascendex.github.io/ascendex-pro-api/#list-all-assets
  */
 export function fetchAssets(init?: RequestInit): Promise<AssetsResponse> {
-  const url = new URL("assets", BASE_URL);
+  const url = new URL("assets", "https://ascendex.com/api/pro/v2/");
 
   return jsonFetch(url, init, {
     parseJson: reviver,
