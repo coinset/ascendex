@@ -186,3 +186,41 @@ type BarInfoResponse = {
   }[];
 };
 ```
+
+### fetchOrderBook
+
+Returns a list of order book.
+[Docs](https://ascendex.github.io/ascendex-pro-api/#order-book-depth)
+
+example:
+
+```ts
+import { fetchOrderBook } from "https://deno.land/x/ascendex@$VERSION/mod.ts";
+await fetchOrderBook({ symbol: "BTC/USDT" });
+```
+
+parameters:
+
+```ts
+type OrderBookOptions = {
+  symbol: `${string}/${string}`;
+};
+```
+
+returns:
+
+```ts
+type OrderBookResponse = {
+  code: 0;
+  data: {
+    m: "depth-snapshot";
+    symbol: `${string}/${string}`;
+    data: {
+      seqnum: number;
+      ts: number;
+      asks: [number, number][];
+      bids: [number, number][];
+    };
+  };
+};
+```
