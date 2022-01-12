@@ -264,3 +264,49 @@ type TradesResponse = {
   };
 };
 ```
+
+### fetchCandlestick
+
+Returns a list of bars, with each contains the open/close/high/low prices of a
+symbol for a specific time range.
+[Docs](https://ascendex.github.io/ascendex-pro-api/#historical-bar-data)
+
+example:
+
+```ts
+import { fetchCandlestick } from "https://deno.land/x/ascendex@$VERSION/mod.ts";
+await fetchBarInfo({ symbol: "BTC/USDT", interval: "1" });
+```
+
+parameters:
+
+```ts
+type CandlestickOptions = {
+  symbol: `${string}/${string}`;
+  interval: string;
+  to?: number | undefined;
+  from?: number | undefined;
+  n?: number | undefined;
+};
+```
+
+returns:
+
+```ts
+type CandlestickResponse = {
+  code: 0;
+  data: {
+    data: {
+      c: number;
+      h: number;
+      i: string;
+      l: number;
+      o: number;
+      ts: number;
+      v: number;
+    };
+    m: "bar";
+    s: `${string}/${string}`;
+  }[];
+};
+```
