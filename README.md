@@ -162,3 +162,27 @@ type TickersResponse = {
   }[];
 };
 ```
+
+### fetchBarInfo
+
+Returns a list of all bar intervals supported by the server.
+[Docs](https://ascendex.github.io/ascendex-pro-api/#bar-info)
+
+example:
+
+```ts
+import { fetchBarInfo } from "https://deno.land/x/ascendex@$VERSION/mod.ts";
+await fetchBarInfo();
+```
+
+returns:
+
+```ts
+type BarInfoResponse = {
+  code: 0;
+  data: {
+    name: string;
+    intervalInMillis: number;
+  }[];
+};
+```
