@@ -73,3 +73,4 @@ export function fetchTicker(
 }
 
 export type { TickerData };
+export { reviver };

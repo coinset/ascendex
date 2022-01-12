@@ -120,3 +120,45 @@ type TickerResponse = {
   };
 };
 ```
+
+### fetchTickers
+
+Get summary statistics of multi symbols (spot market).
+[Docs](https://ascendex.github.io/ascendex-pro-api/#ticker)
+
+example:
+
+```ts
+import { fetchTickers } from "https://deno.land/x/ascendex@$VERSION/mod.ts";
+await fetchTickers();
+```
+
+parameters:
+
+```ts
+type TickersOptions = {
+  symbols: `${string}/${string}`[];
+};
+```
+
+returns:
+
+```ts
+type TickersResponse = {
+  code: 0;
+  data: {
+    symbol: `${string}/${string}`;
+    open: number;
+    close: number;
+    high: number;
+    low: number;
+    volume: number;
+    ask: [number, number];
+    bid: [
+      number,
+      number,
+    ];
+    type: string;
+  }[];
+};
+```
