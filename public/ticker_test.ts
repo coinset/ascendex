@@ -1,12 +1,4 @@
-import {
-  anyArray,
-  anyBoolean,
-  anyNumber,
-  anyOf,
-  anyString,
-  expect,
-  test,
-} from "../dev_deps.ts";
+import { anyNumber, anyString, expect, test } from "../dev_deps.ts";
 import { fetchTicker } from "./ticker.ts";
 
 test("fetchTicker", async () => {
