@@ -78,3 +78,45 @@ type ProductsResponse = {
   }[];
 };
 ```
+
+### fetchTicker
+
+Get summary statistics of one symbol (spot market).
+[Docs](https://ascendex.github.io/ascendex-pro-api/#ticker)
+
+example:
+
+```ts
+import { fetchTicker } from "https://deno.land/x/ascendex@$VERSION/mod.ts";
+await fetchTicker({ symbol: "ASD/USDT" });
+```
+
+parameters:
+
+```ts
+type TickerOptions = {
+  symbol: `${string}/${string}`;
+};
+```
+
+returns:
+
+```ts
+type TickerResponse = {
+  code: 0;
+  data: {
+    symbol: `${string}/${string}`;
+    open: number;
+    close: number;
+    high: number;
+    low: number;
+    volume: number;
+    ask: [number, number];
+    bid: [
+      number,
+      number,
+    ];
+    type: string;
+  };
+};
+```
